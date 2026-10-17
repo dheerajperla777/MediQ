@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MEDIQ | Complete Integrated Emergency Care Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="login-screen" id="loginScreen" aria-label="MEDIQ sign in">
+  <div class="login-visual">
+    <div class="login-brand"><div class="login-logo">💙</div><div><strong>MEDIQ</strong><small>SMART CARE. FASTER RESPONSE.</small></div></div>
+    <div class="login-message"><div class="eyebrow">YOUR EMERGENCY CARE WORKSPACE</div><h1>Care that connects.<br>When every second matters.</h1><p>Sign in to access the MEDIQ emergency healthcare dashboard, hospital search, patient handover tools, and map features.</p>
+      <div class="login-features"><div class="login-feature"><span>🚑</span> Ambulance request and trip-status demo</div><div class="login-feature"><span>🗺️</span> Google Maps hospital search</div><div class="login-feature"><span>🏥</span> Connected emergency-care dashboard</div></div>
+    </div>
+    <div class="login-foot">MEDIQ prototype · For demonstration only<br>For a real emergency in India, call 112.</div>
+  </div>
+  <div class="login-panel"><form class="login-card" id="loginForm">
+    <div class="welcome-label">Welcome back</div><h2>Sign in to MEDIQ</h2><p class="login-subtitle">Enter your username and password to continue to your dashboard.</p>
+    <label class="login-field"><span>Username or email</span><div class="login-input-wrap"><span class="field-icon">✉</span><input id="loginUsername" name="username" type="text" placeholder="Enter your username" autocomplete="username" required></div></label>
+    <label class="login-field"><span>Password</span><div class="login-input-wrap"><span class="field-icon">🔒</span><input id="loginPassword" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required><button type="button" id="togglePassword" aria-label="Show password">Show</button></div></label>
+    <div class="login-options"><label class="remember-option"><input type="checkbox" id="rememberLogin"> Remember me on this device</label><button type="button" class="login-link" id="forgotLogin">Forgot password?</button></div>
+    <button class="primary login-submit" type="submit">Sign in securely&nbsp; →</button><div class="login-error" id="loginError" role="alert"></div>
+    <div class="login-divider">MEDIQ DEMO</div><div class="login-signup">New to MEDIQ? <button type="button" id="demoSignup">Create demo access</button></div>
+    <div class="login-note"><strong>Prototype notice:</strong> This sign-in screen is a front-end demonstration. It does not verify accounts or securely protect medical information. Real authentication requires a backend and secure identity system.</div>
+  </form></div>
+</section>
+
+<a class="skip-link" href="#home">Skip to dashboard</a>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">💙</div><div><strong>MEDIQ</strong><small>Smart Care. Faster Response.</small></div></div>
+  <button class="nav active" data-target="home">⌂ <span>Overview</span></button>
+  <button class="nav" data-action="booking">✚ <span>Emergency Request</span></button>
+  <button class="nav" data-target="tracking">🚑 <span>Ambulance Tracking</span></button>
+  <button class="nav" data-target="patient">▣ <span>Patient Information</span></button>
+  <button class="nav" data-target="organs">♡ <span>Organ Availability</span></button>
+  <button class="nav" data-target="blood">🩸 <span>Blood Donation</span></button>
+  <button class="nav" data-target="hospitals">✚ <span>Nearby Hospitals</span></button>
+  <button class="nav" data-action="message">▤ <span>Messages</span></button>
+  <button class="nav" data-action="settings">⚙ <span>Settings</span></button>
+  <div class="side-note"><div style="font-size:25px;margin-bottom:8px">♡</div><strong>Every second matters.</strong><br/>MEDIQ connects people, emergency teams, and healthcare resources.<br/><br/><small>Prototype dashboard • sample data only</small></div>
+</aside>
+<main class="main" id="home">
+  <header class="topbar">
+    <div class="search">⌕ <input id="globalSearch" placeholder="Search hospitals, blood banks, or services..." /><button class="primary" id="searchBtn">Search</button></div>
+    <div class="profile"><span>🔔</span><div class="avatar">👩🏻‍⚕️</div><div><strong id="signedInName">Hospital Staff</strong><br/><small class="muted">Demo account</small></div><button type="button" class="soft" id="logoutBtn" style="font-size:11px;padding:9px 11px">Log out</button></div>
+  </header>
+  <div class="content">
+    <div class="welcome"><div><h1>Emergency Care Dashboard</h1><p>Coordinate ambulance response, patient handover, and nearby medical resources.</p></div><span class="tag">DEMO DATA — NOT LIVE</span></div>
+    <section class="overview-strip" aria-label="Dashboard overview">
+      <div class="overview-intro"><span class="overview-kicker">MEDIQ OVERVIEW</span><strong>One workspace. Connected care.</strong><small>Demo environment · Verify all details before real-world use</small></div>
+      <div class="overview-stat"><span class="overview-icon blue-icon">🏥</span><div><strong>03</strong><small>Sample facilities</small></div><span class="overview-state">Illustrative</span></div>
+      <div class="overview-stat"><span class="overview-icon teal-icon">🩸</span><div><strong>08</strong><small>Blood groups listed</small></div><span class="overview-state">No live stock</span></div>
+      <div class="overview-stat"><span class="overview-icon amber-icon">📍</span><div><strong>GPS</strong><small>Ambulance location</small></div><span class="overview-state pending-state">Not connected</span></div>
+    </section>
+    <div class="grid">
+      <section class="stack">
+        <article class="card" id="patient">
+          <h2><span class="ico">🪪</span> Patient Information <span class="tag" style="margin-left:auto">Urgent</span></h2>
+          <div class="person"><div class="avatar">🧑🏻</div><div><strong id="patientName">Demo Patient</strong><small>Age: 45 · Booking ID: MEDIQ-10482</small></div></div>
+          <div class="field"><b>Reason for emergency</b><span id="reason">Serious road traffic incident (sample)</span></div>
+          <div class="field"><b>Reported condition</b><span class="red">Possible organ failure — requires clinician assessment</span><br/><span class="muted">Example only; not a diagnosis.</span></div>
+          <div class="field"><b>Symptoms / notes</b><span>Reported weakness, dizziness; verify with patient or clinician.</span></div>
+          <div class="field"><b>Known allergies</b><span>Not yet verified</span></div>
+          <div class="field"><b>Vitals (sample only)</b><div class="vitals"><div class="vital">❤️ Blood pressure<strong>— / —</strong></div><div class="vital">💓 Heart rate<strong>Not entered</strong></div><div class="vital">◉ Oxygen saturation<strong>Not entered</strong></div><div class="vital">🌡 Temperature<strong>Not entered</strong></div></div></div>
+          <div class="field"><b>Potential transplant coordination</b><span class="red">Specialist assessment needed</span><br/><span class="muted">Organ failure does not automatically mean a transplant is needed. Authorized transplant teams must assess and coordinate through approved networks.</span></div>
+          <button class="primary full" data-action="share">↗ Share handover with authorized hospital staff</button>
+        </article>
+        <article class="card" id="organs">
+          <div class="resource-title"><span>🫀</span> Organ Availability & Coordination</div>
+          <div class="field"><b>Required organ / specialist need</b><select id="organType" style="width:100%;padding:9px;border:1px solid var(--line);border-radius:8px;margin-top:4px"><option>Liver transplant assessment</option><option>Kidney transplant assessment</option><option>Heart transplant assessment</option><option>Lung transplant assessment</option><option>Not yet determined by clinician</option></select></div>
+          <div class="field"><b>Availability in current hospital</b><span class="red">Not confirmed</span></div>
+          <div class="table-wrap"><table class="table"><thead><tr><th>Facility</th><th>Distance*</th><th>Coordination</th></tr></thead><tbody><tr><td>City Care Hospital</td><td>2.4 km</td><td><span class="green">Contact team</span></td></tr><tr><td>Sunrise Medical Center</td><td>6.8 km</td><td>Verify service</td></tr><tr><td>Green Valley Hospital</td><td>12.3 km</td><td>Verify service</td></tr></tbody></table></div>
+          <button class="success full" data-action="organ">Request authorized transplant-team coordination</button>
+          <p class="disclaimer">*Illustrative facilities and distances. This does not show donor-organ inventory. Organ allocation and transfers must follow applicable law and authorized transplant-network procedures.</p>
+        </article>
+      </section>
+      <section class="stack">
+        <article class="card map-card" id="tracking">
+          <div class="maphead"><h2><span class="ico">🗺️</span> Fastest Route & Ambulance Tracking</h2><span class="status" id="tripStatus">On the way</span></div>
+          <div class="mapbox" id="googleMapWrap" style="background:#e8f0e7">
+            <iframe id="googleMap" title="Google Maps: nearby hospitals" src="https://maps.google.com/maps?q=hospitals%20near%20me&output=embed" style="width:100%;height:100%;border:0;display:block" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            <div class="map-label"><strong id="eta">Google Maps</strong><span class="green" id="mapSubtitle">Search nearby hospitals or use your location</span></div>
+            <div class="map-actions"><button id="zoomIn" title="Open this search in Google Maps" aria-label="Open this search in Google Maps">↗ Maps</button><button id="zoomOut" title="Get directions in Google Maps" aria-label="Get directions in Google Maps">➤ Directions</button><button id="locate" title="Use my location" aria-label="Find hospitals near my location">◎ Near me</button></div>
+            <div class="map-legend">📍 Your location<br/>🏥 Nearby hospitals<br/>↗ Open full Google Maps</div>
+          </div>
+          <div style="padding:12px 15px;display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12px;flex-wrap:wrap"><span><b id="ambulanceId">No ambulance assigned</b><br/><span class="muted" id="trackingHint">Create a demo request to start a simulated trip</span></span><div style="display:flex;gap:7px;flex-wrap:wrap"><button class="soft" data-action="cancelRequest" id="cancelRequestBtn" style="display:none">Cancel request</button><button class="primary" id="simulateBtn" disabled>▶ Simulate next update</button></div></div>
+          <div style="padding:0 15px 12px;display:flex;gap:8px;flex-wrap:wrap"><a class="soft" id="openGoogleMapsLink" href="https://www.google.com/maps/search/hospitals+near+me" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:10px 12px;border-radius:10px;text-decoration:none;font-size:12px;font-weight:700">↗ Open Google Maps</a><a class="soft" id="openDirectionsLink" href="https://www.google.com/maps/dir/?api=1&destination=nearest%20hospital" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:10px 12px;border-radius:10px;text-decoration:none;font-size:12px;font-weight:700">➤ Get directions</a></div><p class="disclaimer" style="padding:0 15px 12px;margin:0">Google Maps is embedded above, with separate links for live place results and directions. This prototype does not receive live ambulance GPS or calculate a verified emergency ETA; real dispatch requires a trusted ambulance GPS feed and backend integration.</p>
+        </article>
+        <article class="card">
+          <h2><span class="ico">🕒</span> Live Tracking & Trip Updates</h2>
+          <div class="timeline" id="timeline"><p class="muted" style="font-size:12px">No active demo request. Submit an ambulance request to begin tracking.</p></div>
+          <button class="soft full" data-action="history">View full tracking history</button>
+        </article>
+      </section>
+      <section class="stack rightcol">
+        <article class="card">
+          <h2><span class="ico">🚑</span> Ambulance Details</h2>
+          <div class="person"><div style="font-size:32px">🚑</div><div><strong>Ambulance #A102</strong><small>Advanced Life Support · Demo vehicle</small><small>Driver: Assigned demo driver</small></div></div>
+          <div class="field"><b>Current location</b><span id="ambulanceLocation">Not assigned</span><br/><b style="margin-top:7px">Estimated arrival</b><span class="green" id="etaSmall">Not available</span></div>
+          <button class="primary full" data-action="booking">Request an ambulance</button>
+        </article>
+        <article class="card" id="hospitals">
+          <h2><span class="ico">🏥</span> Nearby Hospitals</h2>
+          <div class="tabs"><button class="active" data-filter="nearby">Nearby</button><button data-filter="all">All facilities</button></div>
+          <button class="primary full" id="findNearbyHospitals" style="margin-top:0;margin-bottom:8px">◎ Use my location & find nearby hospitals</button>
+          <div id="locationStatus" class="disclaimer" role="status" aria-live="polite" style="margin:0 0 8px">Location has not been checked. Allow browser location access to search around you.</div>
+          <div id="hospitalList">
+            <div class="hospital" data-search="city care hospital emergency icu transplant"><div class="hospital-icon">🏥</div><div class="hospital-info"><strong>City Care Hospital</strong><small>2.4 km · ~18 min<br/>Emergency · ICU · Specialist assessment</small></div><button class="mini" data-action="hospital">Details</button></div>
+            <div class="hospital" data-search="sunrise medical center emergency trauma"><div class="hospital-icon">🏥</div><div class="hospital-info"><strong>Sunrise Medical Center</strong><small>6.8 km · ~25 min<br/>Emergency · Trauma care</small></div><button class="mini" data-action="hospital">Details</button></div>
+            <div class="hospital" data-search="green valley hospital emergency transplant"><div class="hospital-icon">🏥</div><div class="hospital-info"><strong>Green Valley Hospital</strong><small>12.3 km · ~32 min<br/>Emergency · Specialist services to verify</small></div><button class="mini" data-action="hospital">Details</button></div>
+          </div>
+          <button class="soft full" data-action="hospitals">Find more hospitals</button>
+          <p class="disclaimer">Facility names, services, and distances shown here remain sample data. Use the Google Maps search below to discover real places, then verify emergency capability and bed availability directly before dispatch.</p>
+        </article>
+        <article class="card" id="blood">
+          <div class="resource-title"><span>🩸</span> Blood Donation Resources</div>
+          <div class="tabs"><button class="active" data-bloodtab="camps">Donation camps</button><button data-bloodtab="banks">Blood banks</button></div>
+          <div id="bloodList">
+            <div class="hospital"><div class="hospital-icon">🩸</div><div class="hospital-info"><strong>Community Blood Donation Camp</strong><small>3.5 km · Today (sample listing)<br/>Contact details need verification</small></div><button class="mini" data-action="bloodplace">Details</button></div>
+            <div class="hospital"><div class="hospital-icon">🏥</div><div class="hospital-info"><strong>City Blood Bank</strong><small>5.6 km · Blood components (sample)<br/>Call to confirm current stock</small></div><button class="mini" data-action="bloodplace">Details</button></div>
+          </div>
+          <b style="font-size:12px">Illustrative inventory by blood group</b>
+          <div class="bloodrows"><div class="blood">A+<strong>—</strong><span>units</span></div><div class="blood">A−<strong>—</strong><span>units</span></div><div class="blood">B+<strong>—</strong><span>units</span></div><div class="blood">B−<strong>—</strong><span>units</span></div><div class="blood">AB+<strong>—</strong><span>units</span></div><div class="blood">AB−<strong>—</strong><span>units</span></div><div class="blood">O+<strong>—</strong><span>units</span></div><div class="blood">O−<strong>—</strong><span>units</span></div></div>
+          <button class="danger full" data-action="bloodrequest">Find blood / request donor coordination</button>
+          <p class="disclaimer">Blood availability must come from verified blood-bank feeds and include component type, unit count, compatibility checks, and last-updated time. Units are safer and more meaningful than “liters” for clinical inventory.</p>
+        </article>
+      </section>
+    </div>
+    <footer style="text-align:center;padding:22px 0;color:var(--muted);font-size:11px">💙 MEDIQ · Complete Integrated Emergency Care Prototype · <a href="#" style="color:#0877df" data-action="privacy">Privacy & safety</a></footer>
+  </div>
+</main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="modalback" id="modalback"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><h2 id="modalTitle">MEDIQ</h2><p id="modalIntro" class="muted" style="font-size:13px;line-height:1.5"></p><div id="modalBody"></div><div class="modal-actions"><button id="cancelModal" class="soft">Cancel</button><button id="confirmModal" class="primary">Continue</button></div></div></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
